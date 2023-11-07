@@ -1,0 +1,168 @@
+<!-- ion-header: Encabezado de la página -->
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" class="header">
+    <!-- Logo y botones de navegación -->
+    <ion-img class="baner" src="assets/banner3.1.png"></ion-img>
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="1"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
+      <ion-col size="2" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/home']"><ion-button  class="botones" >inicio</ion-button></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/categorias']"><ion-button  class="botones">Categorias</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button  [routerLink]="['/registro']" class="botones">Registrarse</ion-button></ion-col>
+      <ion-col size="1" class="text" ><ion-button fill="solid" class="botones">Ingresar</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button fill="solid" class="botoncarrito" [routerLink]="['/carrito']" ><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo" >
+  <ion-toolbar class="fondo">
+    <ion-row class="pading" >
+      <ion-col size="12" >
+            <ion-toolbar class="pading" class="fondo">
+              <ion-row>
+                <ion-col size="6" style="padding-left: 10%;">
+                  <ion-card class="fondo-producto">
+                    <ion-img src="{{imagen}}" alt="" class="imagendetalle"></ion-img>
+                  </ion-card>
+                </ion-col>
+                <ion-col size="6">
+                  <ion-row class="cajatexto">
+                    <ion-text class="textDetalle"> 
+                      <h1 >{{nombre}}</h1>   
+                      <h6 >Categoria: {{categoria}}</h6>
+                      <h6 >Unidad por caja: {{unidadxcaja}}</h6>
+                      <h6 >Precio Producto: {{valor_produc | currency:'COP':'$':'1.0-0'}}</h6>
+                      <p class="descrip">{{descrip_produc}}</p>
+                    </ion-text>
+                  </ion-row>
+
+                  <ion-row class="cajaitems">
+                    
+                    <ion-col size="12">
+                      <ion-row>
+                        <ion-col size="4">
+                          <ion-row>
+                            <ion-col size="3">
+                              <ion-icon name="storefront-outline" style="width: 60px; height: 60px;"></ion-icon>
+                            </ion-col>
+                            <ion-col size="9">
+                              <ion-text class="descrip">
+                                Domicilios
+                              </ion-text>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                        <ion-col size="4">
+                          <ion-row>
+                            <ion-col size="3">
+                              <ion-icon name="qr-code-outline" style="width: 60px; height: 60px;"></ion-icon>
+                            </ion-col>
+                            <ion-col size="9">
+                              <ion-text class="descrip">
+                                Transferencia a cuaneta bancaria, pago contraentrega
+                                (tarjeta de credito, nequi, pse o corresponsal bancario)
+                              </ion-text>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                        <ion-col size="4">
+                          <ion-row>
+                            <ion-col size="3">
+                              <ion-icon name="person-outline" style="width: 60px; height: 60px;"></ion-icon>
+                            </ion-col>
+                            <ion-col size="9">
+                              <ion-text class="descrip">
+                                Soporte por nuestra linea de whatsap
+                              </ion-text>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                   
+                  </ion-row>
+
+                  <ion-row>
+                    <ion-col size="2"></ion-col>
+                    <ion-col size="8">
+                      <ion-row>
+                        <ion-col size="1" class="bontoncenter"><ion-button class="botonrestar" (click)="restItem()">-</ion-button></ion-col>
+                        <ion-col size="1"><div class="total">{{quantity}}</div></ion-col>
+                        <ion-col size="1"><ion-button class="botonsumar" (click)="addItem()">+</ion-button></ion-col>
+                        <ion-col size="3"><div class="total"> Total: {{total}}</div></ion-col>
+                        <ion-col size="6"><ion-button class="botonagregar" >agregar al carrito</ion-button></ion-col>
+                      </ion-row>
+                    </ion-col>
+                    <ion-col size="2"></ion-col>
+                  </ion-row>
+
+                  
+                  
+                </ion-col>
+                
+                
+                <!--ion-col size="2" >
+                      <ion-row>
+                        <ion-col size="3">
+                          <ion-icon name="storefront-outline" style="width: 60px; height: 60px;"></ion-icon>
+                        </ion-col>
+                        <ion-col size="9">
+                          <ion-text class="descrip">
+                            Domicilios
+                          </ion-text>
+                        </ion-col>
+                      </ion-row>
+
+                      <ion-label>
+                        <ion-row>
+                          <ion-col size="3">
+                            <ion-icon name="qr-code-outline" style="width: 60px; height: 60px;"></ion-icon>
+                          </ion-col>
+                          <ion-col size="9">
+                            <ion-text class="descrip">
+                              Transferencia a cuaneta bancaria, pago contraentrega
+                              (tarjeta de credito, nequi, pse o corresponsal bancario)
+                            </ion-text>
+                          </ion-col>
+                        </ion-row>
+                      </ion-label>
+
+                      <ion-label>
+                        <ion-row>
+                          <ion-col size="3">
+                            <ion-icon name="person-outline" style="width: 60px; height: 60px;"></ion-icon>
+                          </ion-col>
+                          <ion-col size="9">
+                            <ion-text class="descrip">
+                              Soporte por nuestra linea de whatsap
+                            </ion-text>
+                          </ion-col>
+                        </ion-row>
+                      </ion-label>
+
+                </ion-col-->
+              </ion-row>
+            </ion-toolbar>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-toolbar>
+
+  
+
+</ion-content>
+
+  <!-- Pie de página con información de contacto -->
+  <ion-toolbar color="primary">
+    <ion-row class="navegacion">
+      <ion-col size="1"></ion-col>
+      <ion-col size="2">Derechos reservados</ion-col>
+      <ion-col size="1">telefono</ion-col>
+      <ion-col size="1">direccion</ion-col>
+      <ion-col size="7"></ion-col>
+    </ion-row>
+  </ion-toolbar>

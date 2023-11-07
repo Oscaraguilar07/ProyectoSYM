@@ -1,0 +1,53 @@
+<ion-app>
+
+  <ion-menu side="end" contentId="main-content">
+    <ion-header>
+      <ion-toolbar class="encabezado">
+        <ion-title>Carrito</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content class="ion-padding" >
+
+      <ion-content>
+        <ion-list >
+          <ion-item *ngFor="let pto of listProducAll">
+            <ion-avatar slot="start">
+              <img src="{{pto.imagen}}" alt="avatar" />
+            </ion-avatar>
+            <ion-list>
+              <ion-label>{{pto.nombre}}</ion-label>
+              <ion-label>{{pto.valor_produc}}</ion-label>
+            </ion-list>
+          </ion-item>
+        </ion-list>
+        <ion-infinite-scroll>
+          
+        </ion-infinite-scroll>
+      </ion-content>
+    </ion-content>
+
+    <div>
+      <ion-item></ion-item>
+      <ion-button expand="block" class="botoncarrito" [routerLink]="['/carrito']">Ver carrito</ion-button>
+    </div>
+
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding"></ion-content>
+
+  </div>
+  
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>
+

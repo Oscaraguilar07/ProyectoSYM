@@ -1,0 +1,109 @@
+<!-- ion-header: Encabezado de la página -->
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" class="header">
+    <!-- Logo y botones de navegación -->
+    <ion-img class="baner" src="assets/banner3.1.png"></ion-img>
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="1"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
+      <ion-col size="3" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/home']"><ion-button  class="botones">Inicio</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button  [routerLink]="['/registro']" class="botones">Registrarse</ion-button></ion-col>
+      <ion-col size="1" class="text" ><ion-button fill="solid" class="botones">Ingresar</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button fill="solid" class="botoncarrito"><ion-menu-button><ion-icon name="cart-outline"></ion-icon></ion-menu-button></ion-button></ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<!-- ion-content: Contenido principal de la página -->
+<ion-content [fullscreen]="true" class="fondo">
+
+  <ion-row>
+    <ion-col size="1"></ion-col>
+    <ion-col size="2">
+
+      <br>
+      <br> 
+
+      <ion-accordion-group #accordionGroup>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="light">
+            <ion-label>Categorias</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">Chocolates</div>
+          <div class="ion-padding" slot="content">Detalles</div>
+          <div class="ion-padding" slot="content">Dulces</div>
+          <div class="ion-padding" slot="content">Galletas</div>
+          <div class="ion-padding" slot="content">Gomitas</div>
+        </ion-accordion>
+        <ion-accordion value="second">
+          <ion-item slot="header" color="light">
+            <ion-label>Second Accordion</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">Second Content</div>
+        </ion-accordion>
+        <ion-accordion value="third">
+          <ion-item slot="header" color="light">
+            <ion-label>Third Accordion</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">Third Content</div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-col>
+    <ion-col size="8">
+
+      <ion-toolbar class="fondo">
+        <ion-row>
+          <ion-col size="1"></ion-col>
+          <ion-col size="10">
+    
+            <ion-grid>
+              <ion-row>
+                <!-- Tarjetas de productos generadas dinámicamente usando *ngFor -->
+                <ion-card *ngFor="let produc of productos" class="tarjeta-producto">
+                  <ion-card class="fondoProducto">
+                    <img src="{{produc.imagen}}" class="img-producto"/>
+                  </ion-card>
+                  <ion-card-header>
+                    <ion-card-title>{{produc.nombre}}</ion-card-title>
+                    <ion-card-subtitle>Precio:{{produc.valor_produc | currency:'COP':'$':'1.0-0'}}</ion-card-subtitle>
+                  </ion-card-header>
+            
+                  <ion-card-content>
+                    <p>{{produc.descrip_produc}}</p> 
+                    <ion-row>
+                      <ion-col size="6"><ion-button (click)="Navigate(produc)" >Detalle</ion-button></ion-col>
+                      <ion-col size="6"><ion-button (click)="addItems(produc)" class="botonagregar">Agregar</ion-button></ion-col>
+                    </ion-row>
+                  </ion-card-content>
+                </ion-card>
+              </ion-row>
+            </ion-grid>
+    
+          </ion-col>
+          <ion-col size="1"></ion-col>
+        </ion-row>
+      </ion-toolbar>
+
+    </ion-col>
+    <ion-col size="1"></ion-col>
+  </ion-row>
+
+  <!-- ion-footer: Pie de página de la aplicación -->
+<ion-footer>
+  <ion-toolbar color="primary">
+    <!-- Información de contacto y derechos reservados -->
+    <ion-row class="navegacion">
+      <ion-col size="1"></ion-col>
+      <ion-col size="2">Derechos reservados</ion-col>
+      <ion-col size="1">telefono</ion-col>
+      <ion-col size="1">direccion</ion-col>
+      <ion-col size="7"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
+</ion-content>
+
+

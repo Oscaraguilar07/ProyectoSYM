@@ -1,0 +1,74 @@
+<!-- ion-header: Encabezado de la página -->
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" class="header">
+    <!-- Logo y botones de navegación -->
+    <ion-img class="baner" src="assets/banner3.1.png"></ion-img>
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="1" ><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
+      <ion-col size="3" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/home']"><ion-button fill="solid" class="botones">Inicio</ion-button></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/categorias']"><ion-button  class="botones">Categorias</ion-button></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/registro']"><ion-button class="botones">Registrarse</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button fill="solid" class="botoncarrito"><ion-menu-button><ion-icon name="cart-outline"></ion-icon></ion-menu-button></ion-button></ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu-button><ion-button fill="solid" class="botoncarrito"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-menu-button>
+
+<ion-content [fullscreen]="true">
+
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="8">
+        <ion-card color="primary">
+          <ion-card>
+            <ion-card-header>
+              <ion-row class="ion-justify-content-center"> <!-- Utilizamos la clase ion-justify-content-center -->
+                <ion-col size="4"></ion-col>
+                <ion-col size="4"><ion-card-title >Bienvenido a S&M!</ion-card-title></ion-col>
+                <ion-col size="4"></ion-col>
+              </ion-row>
+            </ion-card-header>
+               
+           
+            <ion-row >
+              <ion-col size="1"></ion-col>
+              <ion-col size="10"><ion-input label="Correo Electrónico:" label-placement="floating" fill="outline" placeholder="Ingrse su correo Electronico" ></ion-input></ion-col>
+              <ion-col size="1"></ion-col>
+            </ion-row>
+            <ion-row >
+              <ion-col size="1"></ion-col>
+              <ion-col size="10"><ion-input label="Contraseña:" label-placement="floating" fill="outline" placeholder="Ingrse su contraseña" type="password" ></ion-input></ion-col>
+              <ion-col size="1"></ion-col>
+            </ion-row>
+           
+            <ion-row >
+              <ion-col size="1"></ion-col>
+              <ion-col size="10"><ion-button expand="block" class="boton-ingresar">Ingresar</ion-button></ion-col>
+              <ion-col size="1"></ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-card>      
+      </ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-row class="navegacion">
+      <ion-col size="1"></ion-col>
+      <ion-col size="2">Derechos reservados</ion-col>
+      <ion-col size="1">telefono</ion-col>
+      <ion-col size="1">direccion</ion-col>
+      <ion-col size="7"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

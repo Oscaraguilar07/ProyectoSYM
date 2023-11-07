@@ -1,0 +1,45 @@
+.encabezado{
+    height: 150px;
+    --background: #202020;
+}
+
+
+ion-title{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    padding-top: 50px;
+    padding-left: 70px;
+    color: white;
+}
+
+ion-menu::part(container) {
+    border-radius: 20px 0 0 20px;
+  
+    box-shadow: 4px 0px 16px rgba(0, 0, 0, 0.18);
+
+    width: 400px;
+  }
+
+  .fondo{
+    background: #ff0000;
+  }
+
+  ion-avatar{
+    width: 100px;
+    height: 100px;
+  }
+
+  .botoncarrito{
+    --background:#FF028B;
+    border: 2px  #FF028B ;
+    height: 30px;
+    padding-bottom: 10%;
+  }
+  
+  .botoncarrito:hover{
+    --background: #202020;
+    --border-color: #FF028B;
+    --border-style: solid;
+    --border-width: 2px;
+  
+  }

@@ -1,0 +1,96 @@
+<!-- ion-header: Encabezado de la página -->
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" class="header">
+    <!-- Logo y botones de navegación -->
+    <ion-img class="baner" src="assets/banner3.1.png"></ion-img>
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="1" [routerLink]="['/home']"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
+      <ion-col size="3" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/home']"><ion-button  class="botones">Inicio</ion-button></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/categorias']"><ion-button  class="botones">Categorias</ion-button></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/registro']"><ion-button   class="botones">Registrarse</ion-button></ion-col>
+      <ion-col size="1" class="text" ><ion-button fill="solid" class="botones">Ingresar</ion-button></ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+
+  <br>
+
+  <ion-row class="fondo">
+    <ion-col size="3"></ion-col>
+    <ion-col size="6">
+      <ion-row>
+        <ion-col size="8">
+          <ion-item class="textotitulo" class="fondo"><h1>Mi carrito</h1></ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item class="textotitulo" class="fondo"><h1>Pedido</h1></ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="3"></ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let pto of listProducAll">
+    <ion-col size="3"></ion-col>
+    <ion-col size="6">
+      <ion-row>
+        <ion-col size="8">
+          <ion-row>
+            <ion-col size="3">
+              <ion-card class="cardimagen">
+                <img src="{{pto.imagen}}" alt="" class="imagen">
+              </ion-card>
+            </ion-col>
+            <ion-col size="4" class="textoInfo">
+              {{pto.nombre}}
+              <br>
+              {{pto.valor_produc | currency:'COP':'$':'1.0-0'}}
+            </ion-col>
+            <ion-col size="3">
+              <ion-row >
+                <ion-col size="4"><ion-button (click)="restItem()"><ion-icon name="remove-outline"></ion-icon></ion-button></ion-col>
+                <ion-col size="4"><div class="total">{{quantity}}</div></ion-col>
+                <ion-col size="4"><ion-button (click)="addItem()"><ion-icon name="add-outline"></ion-icon></ion-button></ion-col>
+              </ion-row>
+            </ion-col>
+            <ion-col size="2">
+              <ion-button class="botonBasura">
+                <ion-icon name="trash-outline" class="iconoBasura"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col size="4">
+          <ion-row>
+            <ion-col size="6"><h1>Subtotal</h1></ion-col>
+            <ion-col size="6"><h1></h1></ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="3"></ion-col>
+  </ion-row>
+
+  <ion-row class="fondo">
+    <ion-col size="3"></ion-col>
+    <ion-col size="6">
+      <ion-row>
+        <ion-col size="8">
+          <ion-item class="textotitulo" class="fondo"><h1></h1></ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item class="textotitulo" class="fondo"></ion-item>
+          <h1>Total</h1>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="3"></ion-col>
+  </ion-row>
+  
+</ion-content>
+
