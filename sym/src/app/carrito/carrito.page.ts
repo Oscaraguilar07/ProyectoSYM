@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrito',
@@ -23,14 +23,16 @@ export class CarritoPage implements OnInit {
   total: any = []
 
   constructor(
-    private router : Router
+    private router : Router,
+    private activateRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
-debugger
+
     this.listProduc=localStorage.getItem('lista-produts');
     this.listProducAll = JSON.parse(this.listProduc);
     console.log(this.listProducAll)
+
 
     this.quantity=1
     this.price=this.valor_produc

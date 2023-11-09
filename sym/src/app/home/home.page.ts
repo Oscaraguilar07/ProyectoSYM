@@ -31,7 +31,7 @@ export class HomePage {
 
     });
 
-    this.http.get('http://localhost/databaseSyM/user.php').subscribe((response)=>{
+    this.http.get('http://localhost/SyM/backend/productos.php').subscribe((response)=>{
       console.log(response);
       this.productos = response;
     });

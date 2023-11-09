@@ -1,137 +1,134 @@
 <!-- ion-header: Encabezado de la página -->
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary" class="header">
-    <!-- Logo y botones de navegación -->
-    <ion-img class="baner" src="assets/banner3.1.png"></ion-img>
-    <ion-row>
-      <ion-col size="2"></ion-col>
-      <ion-col size="1" ><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
-      <ion-col size="3" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/categorias']"><ion-button  class="botones">Categorias</ion-button></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/registro']"><ion-button class="botones">Registrarse</ion-button></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/ingresar']"><ion-button fill="solid" class="botones">Ingresar</ion-button></ion-col>
-      <ion-col size="1" class="text"><ion-button fill="solid" class="botoncarrito"><ion-menu-button><ion-icon name="cart-outline"></ion-icon></ion-menu-button></ion-button></ion-col>
-      <ion-col size="2"></ion-col>
-    </ion-row>
-  </ion-toolbar>
+<ion-toolbar color="primary" class="header">
+  <!-- Logo y botones de navegación -->
+  <ion-img class="baner" src="assets/banner3.1.png"></ion-img>
+  <ion-row>
+    <ion-col size="2"></ion-col>
+    <ion-col size="1" ><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
+    <ion-col size="3" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
+    <ion-col size="1" class="text" [routerLink]="['/categorias']"><ion-button  class="botones">Categorias</ion-button></ion-col>
+    <ion-col size="1" class="text" [routerLink]="['/registro']"><ion-button class="botones">Registrarse</ion-button></ion-col>
+    <ion-col size="1" class="text" [routerLink]="['/ingresar']"><ion-button fill="solid" class="botones">Ingresar</ion-button></ion-col>
+    <ion-col size="1" class="text" [routerLink]="['/carrito']"><ion-button fill="solid" class="botoncarrito"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
+    <ion-col size="2"></ion-col>
+  </ion-row>
+</ion-toolbar>
 </ion-header>
 
 <ion-menu-button><ion-button fill="solid" class="botoncarrito"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-menu-button>
 
 <!-- ion-content: Contenido principal de la página -->
 <ion-content [fullscreen]="true" class="fondo">
-  <!-- Imagen de la tienda -->
-  <ion-toolbar class="fondo" >
-    <ion-row>
-      <ion-col size="1">
-      </ion-col>
-      <ion-col size="10"  >
-        <swiper-container  #swiper initial-slide="0" [navigation]="true" (afterinit)="swiperReady()" (slidechange)="swiperSlideChanged($event)"[loop]="true"[pagination]="{type:'bullets', clickable:true}" [autoplay]="{type:'delay'}">  
-          <swiper-slide>
-            <ion-img src="https://lacanasteria.files.wordpress.com/2013/08/stripusa1.jpg" class="banertienda"></ion-img>
-          </swiper-slide>
-          <swiper-slide><ion-img src="https://as2.ftcdn.net/v2/jpg/02/84/01/61/1000_F_284016119_3mtHYA9d642XVZl5XWwuvFcaAXu4KiqE.jpg" class="banertienda"></ion-img></swiper-slide>
-          <swiper-slide>
-            <ion-img src="https://static.vecteezy.com/system/resources/previews/009/776/831/non_2x/happy-halloween-template-banner-background-with-cobweb-and-candy-cake-cartoon-illustration-dark-purple-background-happy-halloween-design-vector.jpg" class="banertienda"></ion-img>
-          </swiper-slide>
-        </swiper-container>
-      </ion-col>
-      <ion-col size="1">
-      </ion-col>
-    </ion-row>
-  </ion-toolbar>
+<!-- Imagen de la tienda -->
+<ion-toolbar class="fondo" >
+  <ion-row>
+    <ion-col size="1">
+    </ion-col>
+    <ion-col size="10"  >
+      <swiper-container  #swiper initial-slide="0" [navigation]="true" (afterinit)="swiperReady()" (slidechange)="swiperSlideChanged($event)"[loop]="true"[pagination]="{type:'bullets', clickable:true}" [autoplay]="{type:'delay'}">  
+        <swiper-slide>
+          <ion-img src="assets/banerBlackFriday.png" ></ion-img>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-img src="assets/Distribuidora.png" ></ion-img>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-img src="assets/chrıstmas sale.png" ></ion-img>
+        </swiper-slide>
+      </swiper-container>
+    </ion-col>
+    <ion-col size="1">
+    </ion-col>
+  </ion-row>
+</ion-toolbar>
 
 
 
-  <!-- Sección de productos -->
-  <ion-toolbar class="fondo">
-    <ion-row>
-      <ion-col size="1.5"></ion-col>
+<!-- Sección de productos -->
+<ion-toolbar class="fondo">
+  <ion-row>
+    <ion-col size="1.5"></ion-col>
 
-      <ion-col size="3">
-        <ion-card>
-          <img class="img-tarjeta" src="https://entrecampeonas.com/wp-content/uploads/2023/05/canasta-regalo-dia-de-las-madres.jpg" />
-          <ion-card-header>
-            <ion-card-title>Canastas de regalo</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
+    <ion-col size="3">
+      <ion-card>
+        <img class="img-tarjeta" src="https://entrecampeonas.com/wp-content/uploads/2023/05/canasta-regalo-dia-de-las-madres.jpg" />
+        <ion-card-header>
+          <ion-card-title>Detalles</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
 
-      <ion-col size="3">
-        <ion-card>
-          <img class="img-tarjeta" src="https://blog.organogold.com/wp-content/uploads/2022/12/The-perfect-gift_blog-1140x628.jpg" />
-          <ion-card-header>
-            <ion-card-title>Canastas de regalo</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
+    <ion-col size="3">
+      <ion-card>
+        <img class="img-tarjeta" src="https://blog.organogold.com/wp-content/uploads/2022/12/The-perfect-gift_blog-1140x628.jpg" />
+        <ion-card-header>
+          <ion-card-title>Productos</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
 
-      <ion-col size="3">
-        <ion-card>
-          <img class="img-tarjeta" src="https://unicestas.com.br/cdn/shop/articles/cestas-de-presente-2.jpg?v=1683077943&width=1100" />
-          <ion-card-header>
-            <ion-card-title>Canastas de regalo</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
+    <ion-col size="3">
+      <ion-card>
+        <img class="img-tarjeta" src="https://unicestas.com.br/cdn/shop/articles/cestas-de-presente-2.jpg?v=1683077943&width=1100" />
+        <ion-card-header>
+          <ion-card-title>Canastas de regalo</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
 
-      <ion-col size="1.5"></ion-col>
-    </ion-row>
-  </ion-toolbar>
+    <ion-col size="1.5"></ion-col>
+  </ion-row>
+</ion-toolbar>
 
-  <!-- Banner de oferta -->
-  <ion-toolbar class="fondo">
-    <ion-row>
-      <ion-col size="1"></ion-col>
-      <ion-col size="10">
-        <ion-img src="assets/baner-oferta.png" class="baner-oferta"></ion-img>
-      </ion-col>
-      <ion-col size="1"></ion-col>
-    </ion-row>
-  </ion-toolbar>
+<!-- Banner de oferta -->
+<ion-toolbar class="fondo">
+  <ion-row>
+    <ion-col size="1"></ion-col>
+    <ion-col size="10">
+      <ion-img src="assets/Aprovecha.png"></ion-img>
+    </ion-col>
+    <ion-col size="1"></ion-col>
+  </ion-row>
+</ion-toolbar>
 
-  <ion-toolbar class="fondo">
-    <ion-row>
-      <ion-col size="1"></ion-col>
-      <ion-col size="10">
+<ion-toolbar class="fondo2">
+  <ion-row>
+    <ion-col size="1"></ion-col>
+    <ion-col size="10">
+      <ion-toolbar class="fondo2">
+        <ion-row>
+          <ion-col size="2.4">
+            <ion-img src="assets/marcas/aldor.jfif"></ion-img>
+          </ion-col>
+          <ion-col size="2.4">
+            <ion-img src="assets/marcas/super.jfif"></ion-img>
+          </ion-col>
+          <ion-col size="2.4">
+            <ion-img src="assets/marcas/colombina.jfif"></ion-img>
+          </ion-col>
+          <ion-col size="2.4">
+            <ion-img src="assets/marcas/nestle.jpg"></ion-img>
+          </ion-col>
+          <ion-col size="2.4">
+            <ion-img src="assets/marcas/mondelez.jpg"></ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-toolbar>
+    </ion-col>
+    <ion-col size="1"></ion-col>
+  </ion-row>
+</ion-toolbar>
 
-        <ion-grid>
-          <ion-row>
-            <!-- Tarjetas de productos generadas dinámicamente usando *ngFor -->
-            <ion-card *ngFor="let produc of productos" class="tarjeta-producto">
-              <ion-card class="fondoProducto">
-                <img src="{{produc.imagen}}" class="img-producto"/>
-              </ion-card>
-              <ion-card-header>
-                <ion-card-title>{{produc.nombre}}</ion-card-title>
-                <ion-card-subtitle>Precio:{{produc.valor_produc}}</ion-card-subtitle>
-              </ion-card-header>
-        
-              <ion-card-content>
-                <p>{{produc.descrip_produc}}</p> 
-                <ion-row>
-                  <ion-col size="6"><ion-button (click)="Navigate(produc)" >Detalle</ion-button></ion-col>
-                  <ion-col size="6"><ion-button class="botonagregar">Agregar</ion-button></ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </ion-row>
-        </ion-grid>
-
-      </ion-col>
-      <ion-col size="1"></ion-col>
-    </ion-row>
-  </ion-toolbar>
-
-  <!-- Pie de página con información de contacto -->
-  <ion-toolbar color="primary">
-    <ion-row class="navegacion">
-      <ion-col size="1"></ion-col>
-      <ion-col size="2">Derechos reservados </ion-col>
-      <ion-col size="2">Telefono: +57 301 7006764 </ion-col>
-      <ion-col size="2">Dirección: Cl 19A #96c-40, Bogotá</ion-col>
-      <ion-col size="5"></ion-col>
-    </ion-row>
-  </ion-toolbar>
+<!-- Pie de página con información de contacto -->
+<ion-toolbar color="primary">
+  <ion-row class="navegacion">
+    <ion-col size="1"></ion-col>
+    <ion-col size="2">Derechos reservados </ion-col>
+    <ion-col size="2">Telefono: +57 301 7006764 </ion-col>
+    <ion-col size="2">Dirección: Cl 19A #96c-40, Bogotá</ion-col>
+    <ion-col size="5"></ion-col>
+  </ion-row>
+</ion-toolbar>
 
 </ion-content>

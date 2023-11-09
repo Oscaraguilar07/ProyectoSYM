@@ -9,6 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetalleProductoPage implements OnInit {
 
+  productos : any = [];
+
   detaProduc: any = []
 
   listaProductos: any[]=[];

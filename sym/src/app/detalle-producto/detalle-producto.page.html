@@ -3,7 +3,7 @@
   <ion-toolbar color="primary" class="header">
     <!-- Logo y botones de navegación -->
     <ion-img class="baner" src="assets/banner3.1.png"></ion-img>
-    <ion-row>
+    <ion-row >
       <ion-col size="2"></ion-col>
       <ion-col size="1"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
       <ion-col size="2" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
@@ -17,12 +17,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="fondo" >
-  <ion-toolbar class="fondo">
+<ion-content class="fondo">
+  <ion-toolbar class="fondo" >
     <ion-row class="pading" >
       <ion-col size="12" >
             <ion-toolbar class="pading" class="fondo">
-              <ion-row>
+              <ion-row >
                 <ion-col size="6" style="padding-left: 10%;">
                   <ion-card class="fondo-producto">
                     <ion-img src="{{imagen}}" alt="" class="imagendetalle"></ion-img>
@@ -92,7 +92,7 @@
                         <ion-col size="1" class="bontoncenter"><ion-button class="botonrestar" (click)="restItem()">-</ion-button></ion-col>
                         <ion-col size="1"><div class="total">{{quantity}}</div></ion-col>
                         <ion-col size="1"><ion-button class="botonsumar" (click)="addItem()">+</ion-button></ion-col>
-                        <ion-col size="3"><div class="total"> Total: {{total}}</div></ion-col>
+                        <ion-col size="3"><div class="total"> Total: {{total | currency:'COP':'$':'1.0-0'}}</div></ion-col>
                         <ion-col size="6"><ion-button class="botonagregar" >agregar al carrito</ion-button></ion-col>
                       </ion-row>
                     </ion-col>
