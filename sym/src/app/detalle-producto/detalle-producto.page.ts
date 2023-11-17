@@ -41,7 +41,7 @@ export class DetalleProductoPage implements OnInit {
     this.detaProduc=localStorage.getItem('detalleProductos');
     this.detaProduc = JSON.parse(this.detaProduc);
 
-
+    this.id=this.detaProduc.id;
     this.nombre=this.detaProduc.nombre;
     this.descrip_produc=this.detaProduc.descrip_produc;
     this.categoria=this.detaProduc.categoria;
@@ -57,10 +57,20 @@ export class DetalleProductoPage implements OnInit {
 
   }
 
-  addItems(product:any){
-    this.listaProductos.push(product);
+  addItems(){
+    this.listaProductos.push({
+      id: this.id,
+      imagen: this.imagen,
+      nombre: this.nombre,
+      valor_produc: this.valor_produc
+
+    });
     localStorage.setItem('lista-produts',JSON.stringify(this.listaProductos));
-  }
+  } 
+
+  
+
+  
 
   addItem(){
     if(this.quantity > 0){

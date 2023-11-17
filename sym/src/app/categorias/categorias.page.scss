@@ -58,20 +58,22 @@
 ///////////////////////////////
   
 .tarjeta-producto{
-  width: 290px;
-  height: 510px;
-}
-
-.img-producto{
+  height: 280px;
   width: 280px;
-  height: 200px;
+  border-radius: 10px;
 }
 
 .fondoProducto{
-  --background: url('/assets/fondo_pared.png') no-repeat center center fixed;
-  //--background: linear-gradient(to bottom right,#FF028B,#FF229A,#FF41A8,#FF61B7,#FF81C5,#FFA0D4,#FFC0E2,#FFDFF1);
+  --background: url('/assets/marcas/fondomesa2.png') no-repeat center center fixed;
+  height: 180px;
+  width: 260px;
+  border-radius: 10px;
+}
 
-  }
+.img-producto{
+  height: 200px;
+  width: 280px;
+}
 
 .botonagregar{
 --background:#FF028B;

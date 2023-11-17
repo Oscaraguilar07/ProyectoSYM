@@ -6,11 +6,11 @@
     <ion-row>
       <ion-col size="2"></ion-col>
       <ion-col size="1"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
-      <ion-col size="3" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/home']"><ion-button  class="botones">Inicio</ion-button></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/categorias']"><ion-button  class="botones">Categorias</ion-button></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/ingresar']"><ion-button fill="solid" class="botones">Ingresar</ion-button></ion-col>
-      <ion-col size="1" class="text"><ion-button fill="solid" class="botoncarrito"><ion-menu-button><ion-icon name="cart-outline"></ion-icon></ion-menu-button></ion-button></ion-col>
+      <ion-col size="3" class="search"><ion-searchbar [routerLink]="['/home']" show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/home']" class="botones">Inicio</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/categorias']"  class="botones">Categorias</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/ingresar']" fill="solid" class="botones">Ingresar</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/carrito']" fill="solid" class="botoncarrito"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>
   </ion-toolbar>
@@ -88,13 +88,14 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="primary">
-    <ion-row class="navegacion">
-      <ion-col size="1"></ion-col>
-      <ion-col size="2">Derechos reservados</ion-col>
-      <ion-col size="1">telefono</ion-col>
-      <ion-col size="1">direccion</ion-col>
-      <ion-col size="7"></ion-col>
-    </ion-row>
-  </ion-toolbar>
+<!-- Pie de página con información de contacto -->
+<ion-toolbar color="primary">
+  <ion-row>
+    <ion-col size="1"></ion-col>
+    <ion-col size="2">Derechos reservados </ion-col>
+    <ion-col size="2">Telefono: +57 301 7006764 </ion-col>
+    <ion-col size="2">Dirección: Cl 19A #96c-40, Bogotá</ion-col>
+    <ion-col size="5"></ion-col>
+  </ion-row>
+</ion-toolbar>
 </ion-footer>

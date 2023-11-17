@@ -5,25 +5,26 @@
     <ion-img class="baner" src="assets/banner3.1.png"></ion-img>
     <ion-row>
       <ion-col size="2"></ion-col>
-      <ion-col size="1" ><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
+      <ion-col size="1"><ion-img [routerLink]="['/home']" class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
       <ion-col size="3" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/home']"><ion-button fill="solid" class="botones">Inicio</ion-button></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/categorias']"><ion-button  class="botones">Categorias</ion-button></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/registro']"><ion-button class="botones">Registrarse</ion-button></ion-col>
-      <ion-col size="1" class="text"><ion-button fill="solid" class="botoncarrito"><ion-menu-button><ion-icon name="cart-outline"></ion-icon></ion-menu-button></ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/home']" fill="solid" class="botones">Inicio</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/categorias']" class="botones">Categorias</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/registro']" class="botones">Registrarse</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/carrito']" fill="solid" class="botoncarrito"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>
   </ion-toolbar>
 </ion-header>
 
-<ion-menu-button><ion-button fill="solid" class="botoncarrito"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-menu-button>
-
 <ion-content [fullscreen]="true">
+
+  <br>
+  <br>
 
   <ion-toolbar>
     <ion-row>
-      <ion-col size="2"></ion-col>
-      <ion-col size="8">
+      <ion-col size="3"></ion-col>
+      <ion-col size="6">
         <ion-card color="primary">
           <ion-card>
             <ion-card-header>
@@ -54,7 +55,7 @@
           </ion-card>
         </ion-card>      
       </ion-col>
-      <ion-col size="2"></ion-col>
+      <ion-col size="3"></ion-col>
     </ion-row>
   </ion-toolbar>
 

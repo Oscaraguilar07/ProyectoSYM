@@ -33,6 +33,15 @@ export class CarritoPage implements OnInit {
     this.listProducAll = JSON.parse(this.listProduc);
     console.log(this.listProducAll)
 
+    this.nombre=this.listProduc.nombre;
+    this.descrip_produc=this.listProduc.descrip_produc;
+    this.categoria=this.listProduc.categoria;
+    this.unidadxcaja=this.listProduc.unidadxcaja;
+    this.valor_produc=this.listProduc.valor_produc;
+    this.imagen=this.listProduc.imagen;
+
+    console.log("detalle producto", this.listProduc)
+
 
     this.quantity=1
     this.price=this.valor_produc

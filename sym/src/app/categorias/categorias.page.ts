@@ -24,6 +24,8 @@ export class CategoriasPage implements OnInit {
       console.log(response);
       this.productos = response;
     });
+
+    
   }
 
   Navigate(value:any){
@@ -38,5 +40,8 @@ export class CategoriasPage implements OnInit {
     localStorage.setItem('lista-produts',JSON.stringify(this.listaProductos));
   }
 
-
 }
+
+
+
+
