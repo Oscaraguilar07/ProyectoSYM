@@ -31,8 +31,7 @@
           <ion-item slot="header" color="light">
             <ion-label>Categorias</ion-label>
           </ion-item>
-          <div class="ion-padding" slot="content"><ion-button expand="block" (click)="obtenerProductosPorCategoria('chocolate')">Chocolates</ion-button></div>
-          <div class="ion-padding" slot="content"><ion-button expand="block" (click)="obtenerProductosPorCategoria('Detalle')">Detalles</ion-button></div>
+
           <div class="ion-padding" slot="content"><ion-button expand="block">Dulces</ion-button></div>
           <div class="ion-padding" slot="content"><ion-button expand="block">Galletas</ion-button></div>
           <div class="ion-padding" slot="content"><ion-button expand="block">Gomitas</ion-button></div>
@@ -47,14 +46,14 @@
           <ion-col size="12">
             <ion-grid>
               <ion-row>
-                <ion-card *ngFor="let produc of productos" class="tarjeta-producto" >
+                <ion-card *ngFor="let producto of productosPorCategoria">
                   <ion-card class="fondoProducto">
-                    <img src="{{produc.imagen}}" class="img-producto" (click)="Navigate(produc)"/>
+                    <img src="{{producto.imagen}}" class="img-producto" />
                   </ion-card>
                   <ion-card-header>
-                    <ion-card-title>{{produc.nombre}}</ion-card-title>
-                    <ion-card-subtitle>Precio:{{produc.valor_produc | currency:'COP':'$':'1.0-0'}}</ion-card-subtitle>
-                    <ion-col size="12"><ion-button expand="block" class="botonagregar" (click)="addItems(produc)">agregar al carrito</ion-button></ion-col>
+                    <ion-card-title>{{producto.nombre}}</ion-card-title>
+                    <ion-card-subtitle>Precio:{{producto.valor_produc | currency:'COP':'$':'1.0-0'}}</ion-card-subtitle>
+                    <ion-col size="12"><ion-button expand="block" class="botonagregar" >agregar al carrito</ion-button></ion-col>
                   </ion-card-header>
                 </ion-card>
               </ion-row>

@@ -41,7 +41,7 @@ export class DetalleProductoPage implements OnInit {
     this.detaProduc=localStorage.getItem('detalleProductos');
     this.detaProduc = JSON.parse(this.detaProduc);
 
-    this.id=this.detaProduc.id;
+ 
     this.nombre=this.detaProduc.nombre;
     this.descrip_produc=this.detaProduc.descrip_produc;
     this.categoria=this.detaProduc.categoria;
@@ -57,16 +57,44 @@ export class DetalleProductoPage implements OnInit {
 
   }
 
-  addItems(){
-    this.listaProductos.push({
-      id: this.id,
-      imagen: this.imagen,
-      nombre: this.nombre,
-      valor_produc: this.valor_produc
-
-    });
-    localStorage.setItem('lista-produts',JSON.stringify(this.listaProductos));
-  } 
+  addItems() {
+    // Obtener la lista de productos del localStorage
+    const storedProducts = localStorage.getItem('lista-productos');
+  
+    // Parsear la lista de productos almacenados o inicializar un array vacío si no hay productos almacenados
+    this.listaProductos = storedProducts ? JSON.parse(storedProducts) : [];
+  
+    // Buscar el producto en la lista por su nombre
+    const productInList = this.listaProductos.find((p) => p.nombre === this.nombre);
+  
+    if (productInList) {
+      // Si el producto ya está en la lista, aumenta la cantidad
+      productInList.cantidad += 1;
+    } else {
+      // Si el producto no está en la lista, agrégalo con cantidad 1
+      this.listaProductos.push({
+        imagen: this.imagen,
+        nombre: this.nombre,
+        valor_produc: this.valor_produc,
+        cantidad: 1
+      });
+    }
+  
+    // Actualizar el localStorage con la lista actualizada
+    localStorage.setItem('lista-productos', JSON.stringify(this.listaProductos));
+  
+    // Actualizar la cantidad total en el localStorage
+    this.actualizarCantidadTotal();
+  }
+  
+  private actualizarCantidadTotal() {
+    // Calcular la cantidad total sumando la cantidad de todos los productos
+    const cantidadTotal = this.listaProductos.reduce((total, producto) => total + producto.cantidad, 0);
+  
+    // Guardar la cantidad total en el localStorage
+    localStorage.setItem('cantidad-total', cantidadTotal.toString());
+  }
+  
 
   
 
