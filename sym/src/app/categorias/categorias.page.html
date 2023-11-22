@@ -7,9 +7,9 @@
       <ion-col size="2"></ion-col>
       <ion-col size="1"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
       <ion-col size="3" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
+      <ion-col size="1"></ion-col>
       <ion-col size="1" class="text"><ion-button [routerLink]="['/home']" class="botones">Inicio</ion-button></ion-col>
-      <ion-col size="1" class="text"><ion-button [routerLink]="['/registro']" class="botones">Registrarse</ion-button></ion-col>
-      <ion-col size="1" class="text"><ion-button [routerLink]="['/ingresar']" fill="solid" class="botones">Ingresar</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/productos']" class="botones">Productos</ion-button></ion-col>
       <ion-col size="1" class="text"><ion-button [routerLink]="['/carrito']" fill="solid" class="botoncarrito"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>
@@ -19,57 +19,50 @@
 <!-- ion-content: Contenido principal de la página -->
 <ion-content [fullscreen]="true" class="fondo">
 
+  <br>
+  <br>
+
   <ion-row>
-    <ion-col size="1"></ion-col>
-    <ion-col size="2">
-
-      <br>
-      <br> 
-
-      <ion-accordion-group #accordionGroup>
+    <ion-col size="2"></ion-col>
+    <ion-col size="8">
+      <ion-accordion-group *ngFor="let categoria of categorias">
         <ion-accordion value="first">
           <ion-item slot="header" color="light">
-            <ion-label>Categorias</ion-label>
+            <ion-label>{{ categoria }}</ion-label>
           </ion-item>
-          <div class="ion-padding" slot="content"><ion-button expand="block" (click)="obtenerProductosPorCategoria('chocolate')">Chocolates</ion-button></div>
-          <div class="ion-padding" slot="content"><ion-button expand="block" (click)="obtenerProductosPorCategoria('Detalle')">Detalles</ion-button></div>
-          <div class="ion-padding" slot="content"><ion-button expand="block">Dulces</ion-button></div>
-          <div class="ion-padding" slot="content"><ion-button expand="block">Galletas</ion-button></div>
-          <div class="ion-padding" slot="content"><ion-button expand="block">Gomitas</ion-button></div>
+          <div class="ion-padding" slot="content" class="fondo">
+            <ion-toolbar class="fondo">
+              <ion-row>
+                <ion-col size="1"></ion-col>
+                <ion-col size="10">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-card *ngFor="let producto of productosPorCategoria[categoria]" class="tarjeta-producto" >
+                        <ion-card class="fondoProducto">
+                          <img src="{{producto.imagen}}" class="img-producto" (click)="Navigate(producto)"/>
+                        </ion-card>
+                        <ion-card-header>
+                          <ion-card-title>{{producto.nombre}}</ion-card-title>
+                          <ion-card-subtitle>Precio:{{producto.valor_produc | currency:'COP':'$':'1.0-0'}}</ion-card-subtitle>
+                          <ion-col size="12"><ion-button expand="block" class="botonagregar" (click)="addItems(producto)">agregar al carrito</ion-button></ion-col>
+                        </ion-card-header>
+                      </ion-card>
+                    </ion-row>
+                  </ion-grid>
+          
+                </ion-col>
+                <ion-col size="1"></ion-col>
+              </ion-row>
+            
+            </ion-toolbar>
+          </div>
         </ion-accordion>
       </ion-accordion-group>
     </ion-col>
-    <ion-col size="8">
-
-      <ion-toolbar class="fondo">
-        <ion-row>
-          <ion-col size="0"></ion-col>
-          <ion-col size="12">
-            <ion-grid>
-              <ion-row>
-                <ion-card *ngFor="let produc of productos" class="tarjeta-producto" >
-                  <ion-card class="fondoProducto">
-                    <img src="{{produc.imagen}}" class="img-producto" (click)="Navigate(produc)"/>
-                  </ion-card>
-                  <ion-card-header>
-                    <ion-card-title>{{produc.nombre}}</ion-card-title>
-                    <ion-card-subtitle>Precio:{{produc.valor_produc | currency:'COP':'$':'1.0-0'}}</ion-card-subtitle>
-                    <ion-col size="12"><ion-button expand="block" class="botonagregar" (click)="addItems(produc)">agregar al carrito</ion-button></ion-col>
-                  </ion-card-header>
-                </ion-card>
-              </ion-row>
-            </ion-grid>
-    
-          </ion-col>
-          <ion-col size="0"></ion-col>
-        </ion-row>
-      </ion-toolbar>
-      
-
-    </ion-col>
-    <ion-col size="1"></ion-col>
+    <ion-col size="2"></ion-col>
   </ion-row>
-
+  
+</ion-content>
   <!-- ion-footer: Pie de página de la aplicación -->
 <ion-footer>
   <ion-toolbar color="primary">
@@ -84,6 +77,6 @@
   </ion-toolbar>
 </ion-footer>
 
-</ion-content>
+
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-carrito',
@@ -7,6 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./carrito.page.scss'],
 })
 export class CarritoPage implements OnInit {
+alertInputs: any;
+presentAlert() {
+throw new Error('Method not implemented.');
+}
 
   listProduc: any;
   listProducAll: any;
@@ -22,8 +27,10 @@ export class CarritoPage implements OnInit {
   price: number = 0;
   subtotal: number = 0;
   total: number = 0;
+  alertButtons: any;
 
   constructor(
+    public http: HttpClient,
     private router: Router,
     private activateRoute: ActivatedRoute
   ) { }
@@ -103,4 +110,29 @@ export class CarritoPage implements OnInit {
     // Sumar todos los subtotales de los productos
     return this.listProducAll.reduce((total: any, producto: { subtotal: any; }) => total + producto.subtotal, 0);
   }
+
+  enviarCorreo() {
+    const url = 'http://localhost:3000/envio';
+
+    const body = {
+      asunto: this.asunto,
+      email: this.email,
+      mensaje: this.mensaje
+    };
+
+    this.http.post(url, body).subscribe(
+      (response) => {
+        console.log('Correo enviado exitosamente', response);
+      },
+      (error) => {
+        console.error('Error al enviar el correo', error);
+      }
+    );
+  }
+
+  asunto: string = '';
+  email: string = '';
+  mensaje: string = '';
+
+  
 }

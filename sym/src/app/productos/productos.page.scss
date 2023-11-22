@@ -20,6 +20,7 @@
 .text{
   padding-top: 20px;
 }
+
 .botones{
   --background: black;
   --border: 2px  #FF028B ;
@@ -39,6 +40,7 @@
   --background:#FF028B;
   border: 2px  #FF028B ;
   width: 110px;
+  height: 30px;
 }
 
 .botoncarrito:hover{
@@ -48,18 +50,29 @@
   --border-width: 2px;
 
 }
+
+.fondo{
+  --background: #EFEFEF;
+}
+
+///////////////////////////////
   
-/////////////////////////////////
-
-
 .tarjeta-producto{
-  width: 290px;
-  height: 510px;
+  height: 280px;
+  width: 280px;
+  border-radius: 10px;
+}
+
+.fondoProducto{
+  --background: url('/assets/marcas/fondomesa2.png') no-repeat center center fixed;
+  height: 140px;
+  width: 260px;
+  border-radius: 10px;
 }
 
 .img-producto{
+  height: 150px;
   width: 280px;
-  height: 200px;
 }
 
 .botonagregar{
@@ -67,7 +80,4 @@
 --border: 2px  #FF028B ;
 }
 
-ion-icon{
-width: 20px;
-height: 20px;
-}
+  

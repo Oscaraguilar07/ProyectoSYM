@@ -9,39 +9,33 @@ import { Router } from '@angular/router';
 })
 export class CategoriasPage implements OnInit {
 
-obtenerProductos() {
-throw new Error('Method not implemented.');
-}
+  categorias: string[] = ['chocolate', 'galletas', 'gomitas']; // Agrega las categorías que necesitas
 
-  productos: any = [];
+  productosPorCategoria: { [key: string]: any[] } = {};
+
   listaProductos: any[] = [];
+productos: any;
 
   constructor(
     public http: HttpClient,
     public route: Router
   ) {}
 
-  ngOnInit(){
-
-    this.http.get('http://localhost/SyM/backend/productos.php').subscribe((response)=>{
-      console.log(response);
-      this.productos = response;
+  ngOnInit() {
+    this.categorias.forEach(categoria => {
+      this.obtenerProductosPorCategoria(categoria);
     });
   }
 
   obtenerProductosPorCategoria(categoria: string) {
-    this.http.get('http://localhost/SyM/backend/productos.php').subscribe((response) => {
+    this.http.get<any[]>(`http://localhost/SyM/backend/productos.php`).subscribe((response) => {
       console.log(response);
-      this.productos = response;
 
-      // Filtrar productos por la categoría seleccionada
-      const productosCategoria = this.productos.filter((producto: { categoria: string; }) => producto.categoria === categoria);
+      // Filtrar productos por la categoría deseada
+      const productosCategoria = response.filter(producto => producto.categoria === categoria);
 
-      // Convertir la lista de productos de la categoría a una cadena JSON
-      const productosCategoriaJSON = JSON.stringify(productosCategoria);
-
-      // Almacenar en LocalStorage
-      localStorage.setItem(`productos${categoria.charAt(0).toUpperCase() + categoria.slice(1)}`, productosCategoriaJSON);
+      // Guardar productos en el objeto productosPorCategoria
+      this.productosPorCategoria[categoria] = productosCategoria;
     });
   }
 
@@ -49,10 +43,8 @@ throw new Error('Method not implemented.');
     this.route.navigate(['detalle-producto'])
     localStorage.setItem('detalleProductos', JSON.stringify(value))
   }
-  
 
   addItems(product: any) {
-
     const storedProducts = localStorage.getItem('lista-productos');
 
     this.listaProductos = storedProducts ? JSON.parse(storedProducts) : [];
@@ -60,10 +52,8 @@ throw new Error('Method not implemented.');
     const productInList = this.listaProductos.find((p) => p.id === product.id);
   
     if (productInList) {
-
       productInList.cantidad += 1;
     } else {
-
       this.listaProductos.push({ ...product, cantidad: 1 });
     }
 
@@ -73,17 +63,7 @@ throw new Error('Method not implemented.');
   }
   
   private actualizarCantidadTotal() {
-
     const cantidadTotal = this.listaProductos.reduce((total, producto) => total + producto.cantidad, 0);
-  
     localStorage.setItem('cantidad-total', cantidadTotal.toString());
   }
-
-  
-  
-
 }
-
-
-
-
