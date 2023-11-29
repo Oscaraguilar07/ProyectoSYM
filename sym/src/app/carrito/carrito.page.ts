@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-carrito',
@@ -9,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CarritoPage implements OnInit {
 alertInputs: any;
+
 presentAlert() {
 throw new Error('Method not implemented.');
 }
@@ -32,7 +34,8 @@ throw new Error('Method not implemented.');
   constructor(
     public http: HttpClient,
     private router: Router,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -56,7 +59,7 @@ throw new Error('Method not implemented.');
     this.imagen = product.imagen;
   
     this.price = parseFloat(this.valor_produc);
-    this.subtotal = this.price * product.cantidad;  // Usa la cantidad del producto
+    this.subtotal = this.price * product.cantidad;
   }
 
   addItem(product: any) {
@@ -78,48 +81,98 @@ throw new Error('Method not implemented.');
   }
 
   eliminarProducto(index: number) {
-    // Verifica si el índice está dentro del rango de la lista
+
     if (index >= 0 && index < this.listProducAll.length) {
-      // Elimina el producto de la lista
+
       this.listProducAll.splice(index, 1);
-      
-      // Actualiza el localStorage con la lista actualizada
+
       localStorage.setItem('lista-productos', JSON.stringify(this.listProducAll));
-  
-      // Actualiza el total después de eliminar el producto
+
       this.actualizarCantidadTotal();
     }
   }
 
+  formatearMoneda(valor: number): string {
+    return valor.toLocaleString('es-CO', {
+      style: 'currency',
+      currency: 'COP'
+    });
+  }
+
+
+  private calcularTotalProductos(): number {
+    return this.listProducAll.reduce((total: any, producto: { subtotal: any; }) => total + producto.subtotal, 0);
+  }
+
+  private actualizarCantidadTotal() {
+    this.total = this.calcularTotalProductos();
+  
+    const totalFormateado = this.formatearMoneda(this.total);
+    localStorage.setItem('cantidad-total', totalFormateado);
+  }
+
   updateLocalStorage() {
     console.log('Antes de actualizar localStorage:', this.listProducAll);
-    // ... (resto del código)
+
     console.log('Después de actualizar localStorage:', this.listProducAll);
     this.actualizarCantidadTotal();
   }
 
-  private actualizarCantidadTotal() {
-    // Calcular el total sumando los subtotales de todos los productos
-    this.total = this.calcularTotalProductos();
+  async presentAlertPrompt() {
+    const alert = await this.alertController.create({
+      header: 'Informacion del comprador',
+      inputs: [
+        {
+          name: 'email',
+          type: 'text',
+          placeholder: 'Correo electrónico',
+        },
+        {
+          name: 'mensaje',
+          type: 'text',
+          placeholder: 'Dirección',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Cancelar');
+          },
+        },
+        {
+          text: 'Aceptar',
+          handler: (data) => {
+            console.log('Información ingresada:', data);
   
-    // Actualizar el localStorage con el nuevo total
-    localStorage.setItem('cantidad-total', this.total.toString());
+            // Llama a tu función enviarCorreo y pasa la información ingresada
+            this.enviarCorreo(data.email, data.mensaje);
+  
+            // Llama a tu función enviarCorreo con el contenido predeterminado
+            const correoPredeterminado = 'Distrubucionessym@gmail.com';
+            this.enviarCorreo(correoPredeterminado, 'Se realizo una venta');
+          },
+        },
+      ],
+    });
+  
+    await alert.present();
   }
 
-  private calcularTotalProductos(): number {
-    // Sumar todos los subtotales de los productos
-    return this.listProducAll.reduce((total: any, producto: { subtotal: any; }) => total + producto.subtotal, 0);
-  }
-
-  enviarCorreo() {
+  enviarCorreo(email: string, mensaje: string) {
     const url = 'http://localhost:3000/envio';
-
+  
+    // Obtener el subtotal como número antes de enviar el correo
+    const subtotalNumerico = this.calcularSubtotalNumerico();
+  
     const body = {
-      asunto: this.asunto,
-      email: this.email,
-      mensaje: this.mensaje
+      asunto: 'Detalles de la compra',
+      email: email,
+      mensaje: `${mensaje}\n\nDetalles de la compra:\n\n${this.generarDetallesProductos()}\n\nTotal de la compra: ${this.formatearMoneda(subtotalNumerico)}`,
     };
-
+  
     this.http.post(url, body).subscribe(
       (response) => {
         console.log('Correo enviado exitosamente', response);
@@ -129,10 +182,20 @@ throw new Error('Method not implemented.');
       }
     );
   }
+  
+  calcularSubtotalNumerico(): number {
+    // Calcular el subtotal como número sin formato
+    return this.listProducAll.reduce((subtotal: number, producto: { valor_produc: number; cantidad: number; }) => {
+      const productoSubtotal = producto.valor_produc * producto.cantidad;
+      return subtotal + productoSubtotal;
+    }, 0);
+  }
 
-  asunto: string = '';
-  email: string = '';
-  mensaje: string = '';
-
+  
+  generarDetallesProductos(): string {
+    return this.listProducAll.map((producto: { nombre: any; cantidad: number; valor_produc: number; }) => 
+      `${producto.nombre}: ${producto.cantidad} x ${this.formatearMoneda(producto.valor_produc)} (Subtotal: ${this.formatearMoneda(producto.valor_produc * producto.cantidad)})`
+    ).join('\n');
+  }
   
 }

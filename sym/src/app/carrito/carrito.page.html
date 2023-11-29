@@ -99,42 +99,26 @@
 
         </ion-col>
         <ion-col size="4">
-          <ion-button expand="block">Pagar</ion-button>
+          <ion-button expand="block" (click)="presentAlertPrompt()">Pagar</ion-button>
         </ion-col>
       </ion-row>
     </ion-col>
     <ion-col size="3"></ion-col>
   </ion-row>
-
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">Asunto</ion-label>
-      <ion-input [(ngModel)]="asunto" name="asunto" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Correo Electrónico</ion-label>
-      <ion-input [(ngModel)]="email" name="email" type="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Mensaje</ion-label>
-      <ion-textarea [(ngModel)]="mensaje" name="mensaje"></ion-textarea>
-    </ion-item>
-  </ion-list>
-  <ion-button expand="full" (click)="enviarCorreo()">Enviar Correo</ion-button>
-
-    <!-- ion-footer: Pie de página de la aplicación -->
-<ion-footer>
-  <ion-toolbar color="primary">
-    <!-- Información de contacto y derechos reservados -->
-    <ion-row class="navegacion">
-      <ion-col size="1"></ion-col>
-      <ion-col size="2">Derechos reservados</ion-col>
-      <ion-col size="1">telefono</ion-col>
-      <ion-col size="1">direccion</ion-col>
-      <ion-col size="7"></ion-col>
-    </ion-row>
-  </ion-toolbar>
-</ion-footer>
   
 </ion-content>
+
+    <!-- ion-footer: Pie de página de la aplicación -->
+    <ion-footer>
+      <ion-toolbar color="primary">
+        <!-- Información de contacto y derechos reservados -->
+        <ion-row class="navegacion">
+          <ion-col size="1"></ion-col>
+          <ion-col size="2">Derechos reservados</ion-col>
+          <ion-col size="1">telefono</ion-col>
+          <ion-col size="1">direccion</ion-col>
+          <ion-col size="7"></ion-col>
+        </ion-row>
+      </ion-toolbar>
+    </ion-footer>
 
