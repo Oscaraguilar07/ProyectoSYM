@@ -118,19 +118,49 @@ throw new Error('Method not implemented.');
     this.actualizarCantidadTotal();
   }
 
+  async mostrarAlertaExitosa() {
+    const alert = await this.alertController.create({
+      header: 'Éxito',
+      message: 'La operación se realizó correctamente.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async mostrarAlertaError() {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: 'Faltan campos obligatorios. Por favor, completa todos los campos.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
   async presentAlertPrompt() {
     const alert = await this.alertController.create({
       header: 'Informacion del comprador',
       inputs: [
+        {
+          name: 'nombre',
+          type: 'text',
+          placeholder: 'Nombre',
+        },
         {
           name: 'email',
           type: 'text',
           placeholder: 'Correo electrónico',
         },
         {
-          name: 'mensaje',
+          name: 'direccion',
           type: 'text',
           placeholder: 'Dirección',
+        },
+        {
+          name: 'celular',
+          type: 'tel', // Usa el tipo 'tel' para campos de número de teléfono
+          placeholder: 'Número de celular',
         },
       ],
       buttons: [
@@ -145,14 +175,21 @@ throw new Error('Method not implemented.');
         {
           text: 'Aceptar',
           handler: (data) => {
-            console.log('Información ingresada:', data);
-  
-            // Llama a tu función enviarCorreo y pasa la información ingresada
-            this.enviarCorreo(data.email, data.mensaje);
-  
-            // Llama a tu función enviarCorreo con el contenido predeterminado
-            const correoPredeterminado = 'Distrubucionessym@gmail.com';
-            this.enviarCorreo(correoPredeterminado, 'Se realizo una venta');
+            if (this.camposValidos(data)) {
+              console.log('Información ingresada:', data);
+
+              // Llama a tu función enviarCorreo y pasa la información ingresada
+              this.enviarCorreo(data.nombre, data.email, data.direccion, data.celular);
+
+              // Llama a tu función enviarCorreo con el contenido predeterminado
+              const correoPredeterminado = 'Distrubucionessym@gmail.com';
+              this.enviarCorreo(correoPredeterminado, 'Se realizo una venta', '', '');
+              this.mostrarAlertaExitosa();
+            } else {
+              console.log('Faltan campos obligatorios');
+              // Puedes mostrar un mensaje al usuario indicando que faltan campos obligatorios
+              this.mostrarAlertaError();
+            }
           },
         },
       ],
@@ -161,7 +198,12 @@ throw new Error('Method not implemented.');
     await alert.present();
   }
 
-  enviarCorreo(email: string, mensaje: string) {
+  private camposValidos(data: any): boolean {
+    // Verificar que todos los campos obligatorios estén llenos
+    return !!data.nombre && !!data.email && !!data.direccion && !!data.celular;
+  }
+
+  enviarCorreo(nombre: string, email: string, direccion: string, celular: string) {
     const url = 'http://localhost:3000/envio';
   
     // Obtener el subtotal como número antes de enviar el correo
@@ -170,7 +212,7 @@ throw new Error('Method not implemented.');
     const body = {
       asunto: 'Detalles de la compra',
       email: email,
-      mensaje: `${mensaje}\n\nDetalles de la compra:\n\n${this.generarDetallesProductos()}\n\nTotal de la compra: ${this.formatearMoneda(subtotalNumerico)}`,
+      mensaje: `${nombre} ha realizado una compra.\nDirección: ${direccion}\nNúmero de celular: ${celular}\n\nDetalles de la compra:\n\n${this.generarDetallesProductos()}\n\nTotal de la compra: ${this.formatearMoneda(subtotalNumerico)}`,
     };
   
     this.http.post(url, body).subscribe(
