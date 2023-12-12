@@ -64,7 +64,7 @@
 }
 
 .fondoProducto{
-  --background: url('/assets/marcas/fondomesa2.png') no-repeat center center fixed;
+  --background: url('/assets/fondomesa2.png') no-repeat center center fixed;
   height: 140px;
   width: 260px;
   border-radius: 10px;
@@ -79,5 +79,21 @@
 --background:#FF028B;
 --border: 2px  #FF028B ;
 }
+
+// tarjetas de informacion //
+
+.tarjetainfo{
+  border-radius: 5%;
+}
+
+.tituloinfo{
+  font-size: 35px;
+  padding-top: 15%;
+}
+
+.icon{
+  color: #FF028B;
+}
+
 
   

@@ -10,7 +10,7 @@ import Swiper from 'swiper';
 })
 export class HomePage {
 
-  categorias: string[] = ['Detalle']; // Agrega las categorías que necesitas
+  categorias: string[] = ['Detalles']; // Agrega las categorías que necesitas
 
   productosPorCategoria: { [key: string]: any[] } = {};
 

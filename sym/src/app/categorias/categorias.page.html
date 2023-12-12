@@ -27,50 +27,59 @@
     <ion-col size="1"></ion-col>
     <ion-col size="2">
 
-      <ion-row class="cajaitems">
-                    
-        <ion-col size="12">
-          <ion-row>
-            <ion-col size="12">
-              <ion-row>
-                <ion-col size="4">
-                  <ion-icon name="storefront-outline" style="width: 60px; height: 60px;"></ion-icon>
-                </ion-col>
-                <ion-col size="8">
-                  <ion-text class="descrip">
-                    Explora nuestra selección, realiza tu pedido hoy y disfruta de compra sin complicaciones.
-                  </ion-text>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-            <ion-col size="12">
-              <ion-row>
-                <ion-col size="4">
-                  <ion-icon name="qr-code-outline" style="width: 60px; height: 60px;"></ion-icon>
-                </ion-col>
-                <ion-col size="8">
-                  <ion-text class="descrip">
-                    ¿Prefieres pagar al recibir tus artículos? Con nuestro servicio de pago contra entrega, puedes disfrutar de una experiencia de compra sin preocupaciones.
-                  </ion-text>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-            <ion-col size="12">
-              <ion-row>
-                <ion-col size="4">
-                  <ion-icon name="person-outline" style="width: 60px; height: 60px;"></ion-icon>
-                </ion-col>
-                <ion-col size="8">
-                  <ion-text class="descrip">
-                    Soporte
-                  </ion-text>
-                </ion-col>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-       
-      </ion-row>
+      <ion-card class="tarjetainfo">
+        <ion-row>
+          <ion-col size="4">
+            <ion-icon name="storefront-outline" style="width: 100px; height: 100px;" class="icon"></ion-icon>
+          </ion-col>
+          <ion-col size="8">
+            <ion-card-header>
+              <ion-card-title class="tituloinfo">Domicilios</ion-card-title>
+            </ion-card-header>
+          </ion-col>
+        </ion-row>
+        <ion-card-content>
+          Bienvenido a SyM, donde la comodidad se encuentra con la calidad. Nos enorgullece ofrecerte la experiencia de
+          compra más conveniente, y es por eso que hemos implementado nuestro servicio de domicilios para que no tengas
+          que salir de casa.
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="tarjetainfo">
+        <ion-row>
+          <ion-col size="4">
+            <ion-icon name="qr-code-outline" style="width: 100px; height: 100px;" class="icon"></ion-icon>
+          </ion-col>
+          <ion-col size="8">
+            <ion-card-header>
+              <ion-card-title class="tituloinfo">Nequi</ion-card-title>
+            </ion-card-header>
+          </ion-col>
+        </ion-row>
+        <ion-card-content>
+          En SyM, hemos simplificado el proceso de pago para que tu experiencia de compra sea aún más
+          conveniente. Con nuestra opción de pagos virtuales, puedes completar tus transacciones de forma rápida y
+          segura. ¡Descubre la facilidad de comprar con nosotros!
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="tarjetainfo">
+        <ion-row>
+          <ion-col size="4">
+            <ion-icon name="person-outline" style="width: 100px; height: 100px;" class="icon"></ion-icon>
+          </ion-col>
+          <ion-col size="8">
+            <ion-card-header>
+              <ion-card-title class="tituloinfo">Soporte</ion-card-title>
+            </ion-card-header>
+          </ion-col>
+        </ion-row>
+        <ion-card-content>
+          En SyM, no solo nos comprometemos a ofrecerte productos de alta calidad, sino que también
+          nos preocupamos por brindarte un servicio excepcional. Nuestro equipo de soporte técnico está listo para
+          ayudarte en todo momento, asegurando que tengas la mejor experiencia posible.
+        </ion-card-content>
+      </ion-card>
       
     </ion-col>
     <ion-col size="8">
@@ -78,9 +87,9 @@
         <ion-row>
           <ion-col size="1"></ion-col>
           <ion-col size="11">
-            <ion-accordion-group *ngFor="let categoria of categorias">
-              <ion-accordion value="first">
-                <ion-item slot="header" color="light">
+            <ion-accordion-group *ngFor="let categoria of categorias" >
+              <ion-accordion value="first" >
+                <ion-item slot="header" >
                   <ion-label>{{ categoria }}</ion-label>
                 </ion-item>
                 <div class="ion-padding" slot="content" class="fondo">
@@ -118,9 +127,8 @@
     </ion-col>
     <ion-col size="1"></ion-col>
   </ion-row>
-  
-</ion-content>
-  <!-- ion-footer: Pie de página de la aplicación -->
+
+    <!-- ion-footer: Pie de página de la aplicación -->
 <ion-footer>
   <ion-toolbar color="primary">
     <!-- Información de contacto y derechos reservados -->
@@ -133,6 +141,9 @@
     </ion-row>
   </ion-toolbar>
 </ion-footer>
+
+  
+</ion-content>
 
 
 
