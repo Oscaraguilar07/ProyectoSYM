@@ -78,14 +78,14 @@
 
 .tarjeta-producto{
   height: 290px;
-  width: 270px;
+  width: 240px;
   border-radius: 10px;
 }
 
 .fondoProducto{
   --background: url('/assets/fondomesa2.png') no-repeat center center fixed;
   height: 130px;
-  width: 250px;
+  width: 220px;
   border-radius: 10px;
 }
 
@@ -104,4 +104,18 @@
 
 swiper-slide{
   padding-bottom: 30px;
+}
+
+
+
+// iconos info
+
+.infoicono{
+  height: 100px;
+  width: 100px;
+  padding-left: 33%;
+}
+
+.texticono{
+  text-align: center;
 }

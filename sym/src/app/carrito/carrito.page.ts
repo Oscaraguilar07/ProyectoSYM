@@ -190,7 +190,7 @@ throw new Error('Method not implemented.');
               this.enviarCorreo(data.nombre, data.email, data.direccion, data.celular);
 
               // Llama a tu función enviarCorreo con el contenido predeterminado
-              const correoPredeterminado = 'distrubucionessym@gmail.com';
+              const correoPredeterminado = 'symdetallesss@gmail.com';
               this.enviarCorreo(data.nombre,correoPredeterminado, data.direccion, data.celular);
               this.mostrarAlertaExitosa();
 
