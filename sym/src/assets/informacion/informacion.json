@@ -1,0 +1,51 @@
+[
+    {
+        "informacion": [
+            {
+                "antetitulo":"DOMICILOS",
+                "titulo": "¡Recibe tus productos en la puerta de tu hogar!",
+                "descripcion": "Bienvenido a SyM, donde la comodidad se encuentra con la calidad. Nos enorgullece ofrecerte la experiencia de compra más conveniente, y es por eso que hemos implementado nuestro servicio de domicilios para que no tengas que salir de casa.",
+                "encabezado1": "¿Cómo funciona?",
+                "info1": "1. Selecciona tus productos favoritos: Explora nuestro catálogo y elige entre una amplia gama de productos de alta calidad.",
+                "info2": "2. Añade al carrito: Una vez que hayas encontrado todo lo que necesitas, simplemente agrégalo al carrito de compras.",
+                "info3": "3. Confirma tu pedido: Revisa tu carrito, confirma tu pedido y proporciona la dirección de entrega.",
+                "info4": "4. ¡Relájate y espera! Nosotros nos encargamos del resto. Nuestro equipo se asegurará de que tus productos lleguen directamente a tu puerta en el menor tiempo posible.",
+                "encabezado2": "Ventajas de nuestro servicio de domicilios:",
+                "info5": "- Rapidez: Entregamos tus productos con la máxima rapidez para que no tengas que esperar.",
+                "info6": "- Comodidad: Olvídate de las largas filas y del tiempo perdido en desplazamientos. Nosotros llevamos la tienda a tu casa.",
+                "info7": "- Seguridad: Nuestros repartidores están capacitados para garantizar la seguridad de tus productos durante el transporte.",
+                "conclu": "En SyM, no solo nos preocupamos por ofrecerte productos excepcionales, sino también por hacer que tu experiencia de compra sea lo más fácil y agradable posible. ¡Haz tu pedido ahora y deja que nosotros nos encarguemos del resto!"
+            },
+            {
+                "antetitulo":"PAGOS",
+                "titulo": "Compra fácil, paga sin complicaciones",
+                "descripcion": "En SyM, hemos simplificado el proceso de pago para que tu experiencia de compra sea aún más conveniente. Puedes completar tus transacciones de forma rápida y segura, sin salir de casa. ¡Descubre la facilidad de comprar con nosotros!",
+                "encabezado1": "¿Por qué elegir nuestros pagos virtuales?",
+                "info1": "1. ¿Por qué elegir nuestros pagos virtuales?",
+                "info2": "2. Variedad de Métodos de Pago: Aceptamos una amplia gama de métodos. Desde  billeteras electrónicas o efectivo, te ofrecemos opciones flexibles.",
+                "info3": "",
+                "info4": "",
+                "encabezado2": "Cómo usar nuestros pagos virtuales:",
+                "info5": "- Selecciona tus productos: Explora nuestro catálogo y elige tus artículos favoritos.",
+                "info6": "- Añade al carrito: Agrega tus productos al carrito de compras.",
+                "info7": "- Procede al pedido: Realiza tu pedido y paga contranetrega con tu billetera virtual",
+                "conclu": "En SyM, nos esforzamos por brindarte una experiencia de compra sin complicaciones, desde la selección de productos hasta el pago. Únete a nosotros y descubre la conveniencia de comprar en línea con nuestros pagos virtuales."
+            },
+            {
+                "antetitulo":"SOPORTE",
+                "titulo": "¡Estamos aquí para ayudarte en cada paso del camino",
+                "descripcion": "En SyM, no solo nos comprometemos a ofrecerte productos de alta calidad, sino que también nos preocupamos por brindarte un servicio excepcional. Nuestro equipo de soporte técnico está listo para ayudarte en todo momento, asegurando que tengas la mejor experiencia posible.",
+                "encabezado1": "¿Por qué elegir nuestro Soporte Técnico?",
+                "info1": "1. Expertos a tu disposición: Nuestro equipo de soporte está formado por expertos técnicos altamente capacitados y listos para abordar cualquier pregunta o problema que puedas tener.",
+                "info2": "2. Atención Personalizada: Entendemos que cada cliente es único. Te proporcionaremos atención personalizada, asegurándonos de comprender y resolver tus necesidades específicas.",
+                "info3": "3. Vías de Comunicación Variadas: Ya sea a través de chat en línea, correo electrónico o por teléfono, estamos disponibles en las plataformas que prefieras para garantizar una comunicación efectiva y rápida.",
+                "info4": "4. Resolución Rápida de Problemas: Nuestro objetivo es resolver tus problemas de manera eficiente para que puedas disfrutar de tus compras sin interrupciones.",
+                "encabezado2": "Cómo acceder a nuestro Soporte Técnico:",
+                "info5": "- Encuentra la Ayuda que Necesitas: Explora nuestra sección de soporte técnico para encontrar guías, tutoriales y respuestas a preguntas frecuentes.",
+                "info6": "- Contacta con Nosotros: Si necesitas ayuda adicional, nuestro equipo de soporte está a solo un mensaje o llamada de distancia.",
+                "info7": "- Asistencia Remota: Para problemas más complejos, ofrecemos asistencia remota para solucionar tus problemas directamente.",
+                "conclu": "En Sym, nuestro compromiso con la satisfacción del cliente va más allá de la compra. Estamos aquí para garantizar que tengas una experiencia sin problemas desde el momento de la selección de productos hasta su uso continuo."
+            }
+        ]
+    }
+]

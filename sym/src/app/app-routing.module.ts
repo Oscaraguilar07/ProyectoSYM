@@ -36,8 +36,8 @@ const routes: Routes = [
     loadChildren: () => import('./ingresar/ingresar.module').then( m => m.IngresarPageModule)
   },
   {
-    path: 'pagar',
-    loadChildren: () => import('./pagar/pagar.module').then( m => m.PagarPageModule)
+    path: 'informacion',
+    loadChildren: () => import('./informacion/informacion.module').then( m => m.InformacionPageModule)
   },
 ];
 
