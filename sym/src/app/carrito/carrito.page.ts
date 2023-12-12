@@ -118,10 +118,16 @@ throw new Error('Method not implemented.');
     this.actualizarCantidadTotal();
   }
 
+  validarCorreoElectronico(email: string): boolean {
+    // Utiliza una expresión regular para validar el formato del correo electrónico
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  }
+
   async mostrarAlertaExitosa() {
     const alert = await this.alertController.create({
       header: 'Éxito',
-      message: 'La operación se realizó correctamente.',
+      message: 'Gracias por su pedido.',
       buttons: ['OK'],
     });
 
@@ -145,7 +151,7 @@ throw new Error('Method not implemented.');
         {
           name: 'nombre',
           type: 'text',
-          placeholder: 'Nombre',
+          placeholder: 'Nombre completo',
         },
         {
           name: 'email',
@@ -178,6 +184,8 @@ throw new Error('Method not implemented.');
             if (this.camposValidos(data)) {
               console.log('Información ingresada:', data);
 
+              if (this.validarCorreoElectronico(data.email)) {
+
               // Llama a tu función enviarCorreo y pasa la información ingresada
               this.enviarCorreo(data.nombre, data.email, data.direccion, data.celular);
 
@@ -185,6 +193,12 @@ throw new Error('Method not implemented.');
               const correoPredeterminado = 'Distrubucionessym@gmail.com';
               this.enviarCorreo(correoPredeterminado, 'Se realizo una venta', '', '');
               this.mostrarAlertaExitosa();
+
+            } else {
+              // Muestra la alerta de error si el correo electrónico no es válido
+              this.mostrarAlertaErrorCorreo();
+            }
+            
             } else {
               console.log('Faltan campos obligatorios');
               // Puedes mostrar un mensaje al usuario indicando que faltan campos obligatorios
@@ -203,6 +217,16 @@ throw new Error('Method not implemented.');
     return !!data.nombre && !!data.email && !!data.direccion && !!data.celular;
   }
 
+  async mostrarAlertaErrorCorreo() {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: 'El formato del correo electrónico no es válido.',
+      buttons: ['OK'],
+    });
+  
+    await alert.present();
+  }
+
   enviarCorreo(nombre: string, email: string, direccion: string, celular: string) {
     const url = 'http://localhost:3000/envio';
   
@@ -212,7 +236,12 @@ throw new Error('Method not implemented.');
     const body = {
       asunto: 'Detalles de la compra',
       email: email,
-      mensaje: `${nombre} ha realizado una compra.\nDirección: ${direccion}\nNúmero de celular: ${celular}\n\nDetalles de la compra:\n\n${this.generarDetallesProductos()}\n\nTotal de la compra: ${this.formatearMoneda(subtotalNumerico)}`,
+      mensaje: `¡Hola ${nombre}! Gracias por hacer su pedido con nosotros. Estamos emocionados de enviarle nuestros productos de alta calidad. Si tiene alguna pregunta, no dude en preguntar.
+      \nDirección: ${direccion}
+      \nNúmero de celular: ${celular}
+      \n\nDetalles de la compra:
+      \n\n${this.generarDetallesProductos()}
+      \n\nTotal de la compra: ${this.formatearMoneda(subtotalNumerico)}`,
     };
   
     this.http.post(url, body).subscribe(

@@ -46,38 +46,27 @@
 
 
 <!-- Sección de productos -->
-<ion-toolbar class="fondo">
+<ion-toolbar class="fondo" *ngFor="let categoria of categorias">
   <ion-row>
-    <ion-col size="1.5"></ion-col>
+    <ion-col size="1"></ion-col>
+    <ion-col size="10">
+      <ion-grid>
+        <ion-row>
+          <ion-card *ngFor="let producto of productosPorCategoria[categoria]" class="tarjeta-producto" >
+            <ion-card class="fondoProducto">
+              <img src="{{producto.imagen}}" class="img-producto" (click)="Navigate(producto)"/>
+            </ion-card>
+            <ion-card-header>
+              <ion-card-title>{{producto.nombre}}</ion-card-title>
+              <ion-card-subtitle>Precio:{{producto.valor_produc | currency:'COP':'$':'1.0-0'}}</ion-card-subtitle>
+              <ion-col size="12"><ion-button expand="block" class="botonagregar" (click)="addItems(producto)">agregar al carrito</ion-button></ion-col>
+            </ion-card-header>
+          </ion-card>
+        </ion-row>
+      </ion-grid>
 
-    <ion-col size="3">
-      <ion-card>
-        <img class="img-tarjeta" src="https://entrecampeonas.com/wp-content/uploads/2023/05/canasta-regalo-dia-de-las-madres.jpg" />
-        <ion-card-header>
-          <ion-card-title>Detalles</ion-card-title>
-        </ion-card-header>
-      </ion-card>
     </ion-col>
-
-    <ion-col size="3">
-      <ion-card>
-        <img class="img-tarjeta" src="https://blog.organogold.com/wp-content/uploads/2022/12/The-perfect-gift_blog-1140x628.jpg" />
-        <ion-card-header>
-          <ion-card-title>Productos</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="3">
-      <ion-card>
-        <img class="img-tarjeta" src="https://unicestas.com.br/cdn/shop/articles/cestas-de-presente-2.jpg?v=1683077943&width=1100" />
-        <ion-card-header>
-          <ion-card-title>Canastas de regalo</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size="1.5"></ion-col>
+    <ion-col size="1"></ion-col>
   </ion-row>
 </ion-toolbar>
 
@@ -126,8 +115,8 @@
     <ion-col size="1"></ion-col>
     <ion-col size="2">Derechos reservados </ion-col>
     <ion-col size="2">Telefono: +57 301 7006764 </ion-col>
-    <ion-col size="2">Dirección: Cl 19A #96c-40, Bogotá</ion-col>
-    <ion-col size="5"></ion-col>
+    <ion-col size="3">Dirección: Cl 19A #96c-40, Bogotá</ion-col>
+    <ion-col size="4"></ion-col>
   </ion-row>
 </ion-toolbar>
 

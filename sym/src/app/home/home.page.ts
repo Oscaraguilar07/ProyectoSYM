@@ -10,9 +10,13 @@ import Swiper from 'swiper';
 })
 export class HomePage {
 
-  listaProductos: any[]=[];
+  categorias: string[] = ['Detalle']; // Agrega las categorías que necesitas
 
-  productos : any = [];
+  productosPorCategoria: { [key: string]: any[] } = {};
+
+  listaProductos: any[] = []; 
+  
+  productos: any;
 
   @ViewChild('swiper')
   swiperRef: ElementRef | undefined;
@@ -25,17 +29,21 @@ export class HomePage {
   ) { }
 
   ngOnInit() {
-
-    this.http.get('../../assets/jsProductos/Productos.js').subscribe(data => {
-      this.listaProductos = JSON.parse(JSON.stringify(data))[0].detalleProductos; 
-
+    this.categorias.forEach(categoria => {
+      this.obtenerProductosPorCategoria(categoria);
     });
+  }
 
-    this.http.get('http://localhost/SyM/backend/productos.php').subscribe((response)=>{
+  obtenerProductosPorCategoria(categoria: string) {
+    this.http.get<any[]>(`http://localhost/SyM/backend/productos.php`).subscribe((response) => {
       console.log(response);
-      this.productos = response;
-    });
 
+      // Filtrar productos por la categoría deseada
+      const productosCategoria = response.filter(producto => producto.categoria === categoria);
+
+      // Guardar productos en el objeto productosPorCategoria
+      this.productosPorCategoria[categoria] = productosCategoria;
+    });
   }
 
   Navigate(value:any){
@@ -45,13 +53,29 @@ export class HomePage {
     
   }
 
-  addItems(product:any){
-    this.listaProductos.push(product);
-    localStorage.setItem('lista-produts',JSON.stringify(this.listaProductos));
+  addItems(product: any) {
+    const storedProducts = localStorage.getItem('lista-productos');
+
+    this.listaProductos = storedProducts ? JSON.parse(storedProducts) : [];
+
+    const productInList = this.listaProductos.find((p) => p.id === product.id);
+  
+    if (productInList) {
+      productInList.cantidad += 1;
+    } else {
+      this.listaProductos.push({ ...product, cantidad: 1 });
+    }
+
+    localStorage.setItem('lista-productos', JSON.stringify(this.listaProductos));
+  
+    this.actualizarCantidadTotal();
   }
 
-
-
+    private actualizarCantidadTotal() {
+    const cantidadTotal = this.listaProductos.reduce((total, producto) => total + producto.cantidad, 0);
+    localStorage.setItem('cantidad-total', cantidadTotal.toString());
+  }
+  
   swiperReady(){
     this.swiper = this.swiperRef?.nativeElement.swiper;
   }
@@ -60,13 +84,5 @@ export class HomePage {
   swiperSlideChanged(e: any){
     console.log('changed: ', e)
   }
-
-
-
-  
-
-  
-  
-  
 
 }

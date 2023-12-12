@@ -9,12 +9,13 @@ import { Router } from '@angular/router';
 })
 export class CategoriasPage implements OnInit {
 
-  categorias: string[] = ['chocolate', 'galletas', 'gomitas']; // Agrega las categorías que necesitas
+  categorias: string[] = ['Detalle','chocolate', 'galletas', 'gomita']; // Agrega las categorías que necesitas
 
   productosPorCategoria: { [key: string]: any[] } = {};
 
-  listaProductos: any[] = [];
-productos: any;
+  listaProductos: any[] = []; 
+  
+  productos: any;
 
   constructor(
     public http: HttpClient,

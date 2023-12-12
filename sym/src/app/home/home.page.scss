@@ -77,20 +77,22 @@
 /////////////////// tarjeta de productos
 
 .tarjeta-producto{
-  width: 290px;
-  height: 510px;
-}
-
-.img-producto{
-  width: 280px;
-  height: 200px;
+  height: 290px;
+  width: 270px;
+  border-radius: 10px;
 }
 
 .fondoProducto{
-  --background: url('/assets/fondo_pared.png') no-repeat center center fixed;
-  //--background: linear-gradient(to bottom right,#FF028B,#FF229A,#FF41A8,#FF61B7,#FF81C5,#FFA0D4,#FFC0E2,#FFDFF1);
+  --background: url('/assets/fondomesa2.png') no-repeat center center fixed;
+  height: 130px;
+  width: 250px;
+  border-radius: 10px;
+}
 
-  }
+.img-producto{
+  height: 140px;
+  width: 270px;
+}
 
 .botonagregar{
 --background:#FF028B;
