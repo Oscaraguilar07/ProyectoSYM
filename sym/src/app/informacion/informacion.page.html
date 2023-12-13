@@ -6,17 +6,47 @@
     <ion-row>
       <ion-col size="2"></ion-col>
       <ion-col size="1" [routerLink]="['/home']"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
-      <ion-col size="3" class="text" [routerLink]="['/home']"><ion-button>Distribuidora y detallitos sym</ion-button></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/home']"><ion-button  class="botones">Inicio</ion-button></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/productos']"><ion-button  class="botones">Productos</ion-button></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/categorias']"><ion-button  class="botones">Categorias</ion-button></ion-col>
-      <ion-col size="1" class="text" [routerLink]="['/carrito']"><ion-button fill="solid" class="botoncarrito"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
+      <ion-col size="3" class="text" [routerLink]="['/home']"><ion-button>Distribuidora y detallitos
+          sym</ion-button></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/home']"><ion-button class="botones">Inicio</ion-button></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/productos']"><ion-button
+          class="botones">Productos</ion-button></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/categorias']"><ion-button
+          class="botones">Categorias</ion-button></ion-col>
+      <ion-col size="1" class="text" [routerLink]="['/carrito']"><ion-button fill="solid" class="botoncarrito"><ion-icon
+            name="cart-outline"></ion-icon></ion-button></ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-row>
+    <ion-col size="2"></ion-col>
+    <ion-col size="8">
+      <h1>Quienes Somos?</h1>
+      <br>
+      nos dedicamos apasionadamente a endulzar momentos especiales y a añadir un toque mágico a cada celebración. Somos
+      más que una distribuidora de dulces, detalles y sorpresas; somos artesanos de la felicidad y maestros en la
+      creación de experiencias inolvidables.
+
+      <br>
+
+      <h1>Visión</h1>
+      <br>
+      Movernos hacia un crecimiento rentable y hacer de Distribuidora SyM una mejor experiencia de servicio para todo
+      aquel que desee adquirir nuestros productos, además de ofrecer innovación con la página web.
+
+      <br>
+
+      <h1>Misión</h1>
+      <br>
+      La misión principal es facilitar la vida de las personas mediante el uso de la tecnología, desarrollando
+      soluciones innovadoras enfocadas a la calidad y facilidad del manejo de la plataforma
+    </ion-col>
+    <ion-col size="2"></ion-col>
+  </ion-row>
 
   <br>
   <br>
@@ -29,36 +59,36 @@
         <ion-item>
           <h2>{{info.titulo}}</h2>
         </ion-item>
-          <br>
-          {{info.descripcion}}
-          <br>
-          <br>
-          <h3>{{info.encabezado1}}</h3>
-          <br>
-          <br>
-          {{info.info1}}
-          <br>
-          {{info.info2}}
-          <br>
-          {{info.info3}}
-          <br>
-          {{info.info4}}
-          <br>
-          <br>
-          <h3>{{info.encabezado2}}</h3>
-          <br>
-          <br>
-          {{info.info5}}
-          <br>
-          {{info.info6}}
-          <br>
-          {{info.info7}}
-          <br>
-          <br>
-          {{info.conclu}}
-          <br>
-          <br>
-          <br>
+        <br>
+        {{info.descripcion}}
+        <br>
+        <br>
+        <h3>{{info.encabezado1}}</h3>
+        <br>
+        <br>
+        {{info.info1}}
+        <br>
+        {{info.info2}}
+        <br>
+        {{info.info3}}
+        <br>
+        {{info.info4}}
+        <br>
+        <br>
+        <h3>{{info.encabezado2}}</h3>
+        <br>
+        <br>
+        {{info.info5}}
+        <br>
+        {{info.info6}}
+        <br>
+        {{info.info7}}
+        <br>
+        <br>
+        {{info.conclu}}
+        <br>
+        <br>
+        <br>
       </ion-list>
     </ion-col>
     <ion-col size="2"></ion-col>
@@ -66,9 +96,9 @@
 
   <ion-toolbar color="primary">
 
-  
+
     <br>
-  
+
     <ion-row>
       <ion-col size="2"></ion-col>
       <ion-col size="2"><ion-icon name="call-outline" class="infoicono"></ion-icon></ion-col>
@@ -84,7 +114,7 @@
       <ion-col size="2"></ion-col>
       <ion-col size="2" class="texticono">
         Teléfono
-        <br> 
+        <br>
         +57 3017006764</ion-col>
       <ion-col size="1"></ion-col>
       <ion-col size="2" class="texticono">
@@ -102,16 +132,16 @@
       <ion-col size="2"></ion-col>
     </ion-row>
   </ion-toolbar>
-  
+
   <!-- Pie de página con información de contacto -->
   <ion-toolbar color="primary">
     <ion-row class="navegacion">
       <ion-col size="5"></ion-col>
       <ion-col size="2" class="texticono">
-        Diseñado y desarrollado por <u>Darkmoon</u> 
+        Diseñado y desarrollado por <u>Darkmoon</u>
       </ion-col>
       <ion-col size="5"></ion-col>
     </ion-row>
   </ion-toolbar>
-  
-  </ion-content>
+
+</ion-content>
