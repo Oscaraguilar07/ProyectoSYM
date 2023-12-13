@@ -5,8 +5,8 @@
     <ion-img class="baner" src="assets/banner3.1.png"></ion-img>
     <ion-row >
       <ion-col size="2"></ion-col>
-      <ion-col size="1"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
-      <ion-col size="3" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin" placeholder="Buscar"></ion-searchbar></ion-col>
+      <ion-col size="1" [routerLink]="['/home']"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
+      <ion-col size="3" class="text" [routerLink]="['/informacion']"><ion-button>Distribuidora y detallitos sym</ion-button></ion-col>
       <ion-col size="1" class="text" [routerLink]="['/home']"><ion-button  class="botones">Inicio</ion-button></ion-col>
       <ion-col size="1" class="text" [routerLink]="['/productos']"><ion-button  class="botones">Productos</ion-button></ion-col>
       <ion-col size="1" class="text" [routerLink]="['/categorias']"><ion-button  class="botones">Categorias</ion-button></ion-col>
@@ -71,17 +71,64 @@
     </ion-row>
   </ion-toolbar>
 
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
   
 
-</ion-content>
-
+  <ion-toolbar color="primary">
+  
+    <br>
+    
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="2"><ion-icon name="call-outline" class="infoicono"></ion-icon></ion-col>
+      <ion-col size="1"></ion-col>
+      <ion-col size="2"><ion-icon name="location-outline" class="infoicono"></ion-icon></ion-col>
+      <ion-col size="1"></ion-col>
+      <ion-col size="2"><ion-icon name="mail-open-outline" class="infoicono"></ion-icon></ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="2" class="texticono">
+        Teléfono
+        <br> 
+        +57 3017006764</ion-col>
+      <ion-col size="1"></ion-col>
+      <ion-col size="2" class="texticono">
+        Dirección
+        <br>
+        CL 19A #96c-40
+        Bogotá - Colombia
+      </ion-col>
+      <ion-col size="1"></ion-col>
+      <ion-col size="2" class="texticono">
+        Correo electónico
+        <br>
+        symdetallesss&#64;gmail.com
+      </ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </ion-toolbar>
+  
   <!-- Pie de página con información de contacto -->
   <ion-toolbar color="primary">
     <ion-row class="navegacion">
-      <ion-col size="1"></ion-col>
-      <ion-col size="2">Derechos reservados</ion-col>
-      <ion-col size="1">telefono</ion-col>
-      <ion-col size="1">direccion</ion-col>
-      <ion-col size="7"></ion-col>
+      <ion-col size="5"></ion-col>
+      <ion-col size="2" class="texticono">
+        Diseñado y desarrollado por <u>Darkmoon</u> 
+      </ion-col>
+      <ion-col size="5"></ion-col>
     </ion-row>
   </ion-toolbar>
+  
+  </ion-content>

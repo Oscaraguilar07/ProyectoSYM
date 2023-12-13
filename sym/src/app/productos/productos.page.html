@@ -5,15 +5,12 @@
     <ion-img class="baner" src="assets/banner3.1.png"></ion-img>
     <ion-row>
       <ion-col size="2"></ion-col>
-      <ion-col size="1"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
-      <ion-col size="3" class="search"><ion-searchbar show-clear-button="always" clear-icon="trash-bin"
-          placeholder="Buscar"></ion-searchbar></ion-col>
+      <ion-col size="1" [routerLink]="['/home']"><ion-img class="logo" src="assets/S&M (2).png"></ion-img></ion-col>
+      <ion-col size="3" class="text" [routerLink]="['/informacion']"><ion-button>Distribuidora y detallitos sym</ion-button></ion-col>
       <ion-col size="1"></ion-col>
       <ion-col size="1" class="text"><ion-button [routerLink]="['/home']" class="botones">Inicio</ion-button></ion-col>
-      <ion-col size="1" class="text"><ion-button [routerLink]="['/categorias']"
-          class="botones">Categorias</ion-button></ion-col>
-      <ion-col size="1" class="text"><ion-button [routerLink]="['/carrito']" fill="solid" class="botoncarrito"><ion-icon
-            name="cart-outline"></ion-icon></ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/categorias']"class="botones">Categorias</ion-button></ion-col>
+      <ion-col size="1" class="text"><ion-button [routerLink]="['/carrito']" fill="solid" class="botoncarrito"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
       <ion-col size="2"></ion-col>
     </ion-row>
   </ion-toolbar>
@@ -121,11 +118,6 @@
   </ion-row>
 
   <ion-toolbar color="primary">
-    <ion-row>
-      <ion-col size="5.5"></ion-col>
-      <ion-col size="1" [routerLink]="['/home']"><ion-img class="logo2" src="assets/S&M (2).png"></ion-img></ion-col>
-      <ion-col size="5.5"></ion-col>
-    </ion-row>
   
     <br>
     
